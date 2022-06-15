@@ -1,0 +1,17 @@
+{
+  "name": "labymod-addon-archive",
+  "version": "1.0.0",
+  "description": "Bot for archiving addons from the LabyMod store.",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "winston": "^3.7.2"
+  }
+}
