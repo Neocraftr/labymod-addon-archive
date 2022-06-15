@@ -100,7 +100,9 @@ function updateArchive() {
                     archiveFile.addons[version][savedAddonIndex].isDeleted = false;
                 }
             }
-    
+        }
+
+        for(version of Object.keys(archiveFile.addons)) {
             // deleted addons
             logger.info(`Checking for deleted addons (MC ${version.replace(/^(\d{1})(\d+)$/, '$1.$2')})...`);
             archiveFile.addons[version].forEach((savedAddonInfo, savedAddonIndex) => {
@@ -111,7 +113,10 @@ function updateArchive() {
                 }
             });
         }
+
         await fsPromise.writeFile('./data/archive.json', JSON.stringify(archiveFile));
+    }).catch(err => {
+        logger.error(`Can not download addon list: ${err.message}`);
     });
 }
 
